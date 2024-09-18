@@ -26,6 +26,7 @@ open class BaseTest {
 
     @AfterSuite
     fun serverStop() {
+        AppFactory.closeApp()
         AppiumServer.stop()
     }
 

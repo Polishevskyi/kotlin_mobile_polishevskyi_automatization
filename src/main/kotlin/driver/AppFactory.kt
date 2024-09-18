@@ -68,4 +68,9 @@ object AppFactory {
             else -> throw SkipException("Enter valid platform value, android/ios")
         }
     }
+
+    fun closeApp() {
+        driver?.quit()
+        driver = null
+    }
 }
