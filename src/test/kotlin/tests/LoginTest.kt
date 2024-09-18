@@ -1,7 +1,8 @@
 package tests
 
 import BaseTest
-import org.testng.Assert
+import org.testng.Assert.assertEquals
+import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
 import utils.DataProviders
 import utils.StringHelper.ERROR_PASSWORD_REQUIRED
@@ -14,33 +15,41 @@ class LoginTest : BaseTest() {
     @Test(priority = 1)
     fun invalidLoginEmptyUserNameTest() {
         menuPage.navigateToLogin()
-        loginPage.enterUserName("")
-        loginPage.enterPassword(VALID_PASSWORD)
-        loginPage.clickLoginButton()
-        Assert.assertEquals(loginPage.getUserNameErrorText(), ERROR_USERNAME_REQUIRED)
+        with(loginPage) {
+            enterUserName("")
+            enterPassword(VALID_PASSWORD)
+            clickLoginButton()
+        }
+        assertEquals(loginPage.getUserNameErrorText(), ERROR_USERNAME_REQUIRED)
     }
 
     @Test(priority = 2)
     fun invalidLoginEmptyPasswordTest() {
-        loginPage.enterUserName(VALID_USERNAME)
-        loginPage.enterPassword("")
-        loginPage.clickLoginButton()
-        Assert.assertEquals(loginPage.getPasswordErrorText(), ERROR_PASSWORD_REQUIRED)
+        with(loginPage) {
+            enterUserName(VALID_USERNAME)
+            enterPassword("")
+            clickLoginButton()
+        }
+        assertEquals(loginPage.getPasswordErrorText(), ERROR_PASSWORD_REQUIRED)
     }
 
     @Test(dataProvider = "invalid-login-dataProvider", dataProviderClass = DataProviders::class, priority = 3)
-    fun invalidLoginTest(uName: String, password: String, errorText: String) {
-        loginPage.enterUserName(uName)
-        loginPage.enterPassword(password)
-        loginPage.clickLoginButton()
-        Assert.assertEquals(loginPage.getCredentialsErrorText(), errorText)
+    fun invalidLoginTest(userName: String, password: String, errorText: String) {
+        with(loginPage) {
+            enterUserName(userName)
+            enterPassword(password)
+            clickLoginButton()
+        }
+        assertEquals(loginPage.getCredentialsErrorText(), errorText)
     }
 
     @Test(priority = 4)
     fun validLoginTest() {
-        loginPage.enterUserName(VALID_USERNAME)
-        loginPage.enterPassword(VALID_PASSWORD)
-        loginPage.clickLoginButton()
-        Assert.assertTrue(productsPage.waitForProductText())
+        with(loginPage) {
+            enterUserName(VALID_USERNAME)
+            enterPassword(VALID_PASSWORD)
+            clickLoginButton()
+        }
+        assertTrue(productsPage.waitForProductText())
     }
 }
