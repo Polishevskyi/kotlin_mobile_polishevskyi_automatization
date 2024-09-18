@@ -1,4 +1,4 @@
-package base
+package utils
 
 object StringHelper {
     // Texts for errors

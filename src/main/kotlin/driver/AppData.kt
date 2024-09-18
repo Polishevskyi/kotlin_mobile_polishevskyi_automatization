@@ -1,4 +1,4 @@
-package base
+package driver
 
 object AppData {
     val platform: String = System.getProperty("platform", "ios")
