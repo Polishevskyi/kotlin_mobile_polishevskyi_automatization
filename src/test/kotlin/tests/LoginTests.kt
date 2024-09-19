@@ -10,47 +10,58 @@ import utils.StringHelper.ERROR_USERNAME_REQUIRED
 import utils.StringHelper.VALID_PASSWORD
 import utils.StringHelper.VALID_USERNAME
 
-class LoginTest : BaseTest() {
+class LoginTests : BaseTest() {
 
     @Test(priority = 1)
-    fun emptyLoginAndCorrectPasswordTest() {
+    fun `Verify error when username is empty and password is correct`() {
         menuPage.navigateToLogin()
         with(loginPage) {
-            menuPage.navigateToLogin()
             enterUserEmail("")
             enterUserPassword(VALID_PASSWORD)
             tapLoginButton()
         }
-        assertEquals(loginPage.getUserNameErrorText(), ERROR_USERNAME_REQUIRED)
+        assertEquals(
+            loginPage.getUserNameErrorText(),
+            ERROR_USERNAME_REQUIRED,
+            "Username error message should be displayed when username is empty"
+        )
     }
 
     @Test(priority = 2)
-    fun correctLoginAndEmptyPasswordTest() {
+    fun `Verify error when username is correct and password is empty`() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)
             enterUserPassword("")
             tapLoginButton()
         }
-        assertEquals(loginPage.getUserPasswordErrorText(), ERROR_PASSWORD_REQUIRED)
+        assertEquals(
+            loginPage.getUserPasswordErrorText(),
+            ERROR_PASSWORD_REQUIRED,
+            "Password error message should be displayed when password is empty"
+        )
     }
 
     @Test(dataProvider = "invalid-login-dataProvider", dataProviderClass = DataProviders::class, priority = 3)
-    fun invalidLoginTest(userName: String, password: String, errorText: String) {
+    fun `Verify error when login credentials are invalid`(userName: String, password: String, errorText: String) {
         with(loginPage) {
             enterUserEmail(userName)
             enterUserPassword(password)
             tapLoginButton()
         }
-        assertEquals(loginPage.getCredentialsErrorText(), errorText)
+        assertEquals(
+            loginPage.getCredentialsErrorText(),
+            errorText,
+            "Credentials error message should match the expected text for invalid login"
+        )
     }
 
     @Test(priority = 4)
-    fun validLoginTest() {
+    fun `Verify successful login with valid credentials`() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)
             enterUserPassword(VALID_PASSWORD)
             tapLoginButton()
         }
-        assertTrue(productsPage.getTitleMainPage())
+        assertTrue(productsPage.getTitleMainPage(), "Main page should be displayed after successful login")
     }
 }

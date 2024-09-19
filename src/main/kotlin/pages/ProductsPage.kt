@@ -24,4 +24,12 @@ class ProductsPage : BasePage() {
 
     fun getTitleMainPage(): Boolean =
         productPage.let { runCatching { it.isDisplayed }.getOrDefault(false) }
+
+    fun getFirstItemNameText(): String {
+        return firstItemName.text
+    }
+
+    fun tapOnFirstItem() {
+        firstItemName.click()
+    }
 }
