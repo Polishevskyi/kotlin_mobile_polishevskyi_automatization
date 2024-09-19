@@ -5,21 +5,21 @@ import org.testng.annotations.Test
 import utils.StringHelper.DIGIT_ONE
 import kotlin.test.assertEquals
 
-class CartTest : BaseTest() {
+class CartNameTest : BaseTest() {
 
     @Test
-    fun `Verify add product to cart`() {
+    fun `Verify product name when add product to cart`() {
         val firstItemName = productsPage.getFirstItemNameText()
         productsPage.tapOnFirstItem()
 
         goodsPage.tapOnAddToCartButton()
 
-        val cartLabel = goodsPage.getLabelOnCartTabText()
-        assertEquals(cartLabel, DIGIT_ONE, "Label on cart doesn't equal to $DIGIT_ONE")
+        val cartName = goodsPage.getNameOnCartTabText()
+        assertEquals(cartName, DIGIT_ONE, "Name is not equal to $DIGIT_ONE")
 
         goodsPage.tapOnCartTabButton()
 
         val cartItemName = cartPage.getProductLabelText()
-        assertEquals(cartItemName, firstItemName, "Product name in the cart doesn't match the expected one")
+        assertEquals(cartItemName, firstItemName, "Name doesn't equal the expected one")
     }
 }

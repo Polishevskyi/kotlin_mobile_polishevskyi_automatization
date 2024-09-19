@@ -29,6 +29,10 @@ class ProductsPage : BasePage() {
         return firstItemName.text
     }
 
+    fun getFirstItemPriceText(): String {
+        return firstItemPrice.text
+    }
+
     fun tapOnFirstItem() {
         firstItemName.click()
     }
