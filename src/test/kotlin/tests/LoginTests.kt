@@ -1,6 +1,7 @@
 package tests
 
 import BaseTest
+import io.qameta.allure.Owner
 import org.testng.Assert.assertEquals
 import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
@@ -13,6 +14,7 @@ import utils.StringHelper.VALID_USERNAME
 class LoginTests : BaseTest() {
 
     @Test(priority = 1)
+    @Owner("Polishevskyi")
     fun `Verify error when username is empty and password is correct`() {
         with(menuPage) {
             tapOnMenuTab()
@@ -31,6 +33,7 @@ class LoginTests : BaseTest() {
     }
 
     @Test(priority = 2)
+    @Owner("Polishevskyi")
     fun `Verify error when username is correct and password is empty`() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)
@@ -45,6 +48,7 @@ class LoginTests : BaseTest() {
     }
 
     @Test(dataProvider = "invalid-login-dataProvider", dataProviderClass = DataProviders::class, priority = 3)
+    @Owner("Polishevskyi")
     fun `Verify error when login credentials are invalid`(userName: String, password: String, errorText: String) {
         with(loginPage) {
             enterUserEmail(userName)
@@ -59,6 +63,7 @@ class LoginTests : BaseTest() {
     }
 
     @Test(priority = 4)
+    @Owner("Polishevskyi")
     fun `Verify successful login with valid credentials`() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)

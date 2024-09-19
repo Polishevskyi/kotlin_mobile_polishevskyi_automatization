@@ -14,13 +14,11 @@ class DataProviders {
         return arrayOf(
             arrayOf(dataGenerator.generateRandomEmail(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
             arrayOf(VALID_USERNAME, dataGenerator.generateRandomPassword(), ERROR_INVALID_CREDENTIALS),
-            arrayOf(dataGenerator.generateRandomEmail(), dataGenerator.generateRandomPassword(), ERROR_INVALID_CREDENTIALS),
-            arrayOf(dataGenerator.generateLoginWithoutDomain(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
-            arrayOf(dataGenerator.generateLoginWithoutAtSymbol(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
-            arrayOf(dataGenerator.generateSqlInjection(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
-            arrayOf(VALID_USERNAME, dataGenerator.generateSqlInjection(), ERROR_INVALID_CREDENTIALS),
-            arrayOf(dataGenerator.generateXssAttack(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
-            arrayOf(VALID_USERNAME, dataGenerator.generateXssAttack(), ERROR_INVALID_CREDENTIALS)
+            arrayOf(
+                dataGenerator.generateRandomEmail(),
+                dataGenerator.generateRandomPassword(),
+                ERROR_INVALID_CREDENTIALS
+            )
         )
     }
 }

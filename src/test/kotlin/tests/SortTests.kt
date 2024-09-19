@@ -1,16 +1,18 @@
 package tests
 
 import BaseTest
+import io.qameta.allure.Owner
+import org.testng.Assert.assertEquals
 import org.testng.annotations.Test
 import utils.StringHelper.PRODUCT_NAME_ASCENDING
 import utils.StringHelper.PRODUCT_NAME_DESCENDING
 import utils.StringHelper.PRODUCT_PRICE_ASCENDING
 import utils.StringHelper.PRODUCT_PRICE_DESCENDING
-import kotlin.test.assertEquals
 
 class SortTests : BaseTest() {
 
     @Test
+    @Owner("Polishevskyi")
     fun `Verify product name when sorted by name ascending`() {
         with(productsPage) {
             tapOnSortIcon()
@@ -25,6 +27,7 @@ class SortTests : BaseTest() {
     }
 
     @Test
+    @Owner("Polishevskyi")
     fun `Verify product name when sorted by name descending`() {
         with(productsPage) {
             tapOnSortIcon()
@@ -39,6 +42,7 @@ class SortTests : BaseTest() {
     }
 
     @Test
+    @Owner("Polishevskyi")
     fun `Verify product name when sorted by price ascending`() {
         with(productsPage) {
             tapOnSortIcon()
@@ -53,6 +57,7 @@ class SortTests : BaseTest() {
     }
 
     @Test
+    @Owner("Polishevskyi")
     fun `Verify product name when sorted by price descending`() {
         with(productsPage) {
             tapOnSortIcon()

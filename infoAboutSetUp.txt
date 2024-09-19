@@ -65,5 +65,7 @@ Appium Inspector BrowserStack Android remote run
 "appium": "bs://d47dee8664b8ec67348d554b8dde75c28d870d50"
 }
 
-mvn clean test -Dplatform=android
-mvn test -Dplatform="android" -DuseGesturePlugin="false" -DchromeAutoDownloadDriver="false" -DisCloud="false"
+mvn clean test -Dplatform="android" -DisCloud="true"
+mvn clean test -Dplatform="ios" -DisCloud="true"
+
+mvn allure:serve
