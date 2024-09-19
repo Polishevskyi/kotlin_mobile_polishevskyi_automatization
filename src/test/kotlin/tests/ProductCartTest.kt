@@ -18,21 +18,21 @@ class ProductCartTest : BaseTest() {
         productsPage.tapOnFirstItem()
 
         with(goodsPage) {
-            tapOnAddToCartButton()
-            val cartName = getNameOnCartTabText()
+            tapOnAddToCartBtn()
+            val cartName = getCartNameText()
             assertEquals(cartName, DIGIT_ONE, "Name is not equal to $DIGIT_ONE")
 
-            val cartPrice = getPriceOnCartTabText()
+            val cartPrice = getCartPriceText()
             assertEquals(cartPrice, ITEM_PRICE, "Price is not equal to $ITEM_PRICE")
 
             tapOnCartTabButton()
         }
 
         with(cartPage) {
-            val cartItemName = getProductLabelText()
+            val cartItemName = getCartItemNameText()
             assertEquals(cartItemName, firstItemName, "Name doesn't equal the expected one")
 
-            val cartItemPrice = getProductPriceText()
+            val cartItemPrice = getCartItemPriceText()
             assertEquals(cartItemPrice, firstItemPrice, "Price doesn't equal the expected one")
         }
     }

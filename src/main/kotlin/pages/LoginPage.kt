@@ -40,7 +40,7 @@ class LoginPage : BasePage() {
         password.sendKeys(passwordText)
     }
 
-    fun tapLoginButton() {
+    fun tapOnLoginBtn() {
         btnLogin.click()
     }
 

@@ -53,23 +53,23 @@ class ProductsPage : BasePage() {
         firstItemName.click()
     }
 
-    fun tapOnSortIcon() {
+    fun tapOnSortBtn() {
         sortIcon.click()
     }
 
-    fun tapOnNameAsc() {
+    fun tapOnNameAscBtn() {
         sortByNameAscending.click()
     }
 
-    fun tapOnNameDesc() {
+    fun tapOnNameDescBtn() {
         sortByNameDescending.click()
     }
 
-    fun tapOnPriceAsc() {
+    fun tapOnPriceAscBtn() {
         sortByPriceAscending.click()
     }
 
-    fun tapOnPriceDesc() {
+    fun tapOnPriceDescBtn() {
         sortByPriceDescending.click()
     }
 }

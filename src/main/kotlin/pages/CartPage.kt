@@ -13,11 +13,11 @@ class CartPage : BasePage() {
     @iOSXCUITFindBy(accessibility = "product price")
     private lateinit var productPrice: WebElement
 
-    fun getProductLabelText(): String {
+    fun getCartItemNameText(): String {
         return productLabel.text
     }
 
-    fun getProductPriceText(): String {
+    fun getCartItemPriceText(): String {
         return productPrice.text
     }
 }

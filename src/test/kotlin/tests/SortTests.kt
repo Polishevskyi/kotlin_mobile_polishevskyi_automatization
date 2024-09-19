@@ -15,8 +15,8 @@ class SortTests : BaseTest() {
     @Owner("Polishevskyi")
     fun `Verify product name when sorted by name ascending`() {
         with(productsPage) {
-            tapOnSortIcon()
-            tapOnNameAsc()
+            tapOnSortBtn()
+            tapOnNameAscBtn()
             val itemNameAsc = getFirstItemNameText()
             assertEquals(
                 itemNameAsc,
@@ -30,8 +30,8 @@ class SortTests : BaseTest() {
     @Owner("Polishevskyi")
     fun `Verify product name when sorted by name descending`() {
         with(productsPage) {
-            tapOnSortIcon()
-            tapOnNameDesc()
+            tapOnSortBtn()
+            tapOnNameDescBtn()
             val itemNameDesc = getFirstItemNameText()
             assertEquals(
                 itemNameDesc,
@@ -45,8 +45,8 @@ class SortTests : BaseTest() {
     @Owner("Polishevskyi")
     fun `Verify product name when sorted by price ascending`() {
         with(productsPage) {
-            tapOnSortIcon()
-            tapOnPriceAsc()
+            tapOnSortBtn()
+            tapOnPriceAscBtn()
             val itemPriceAsc = getFirstItemNameText()
             assertEquals(
                 itemPriceAsc,
@@ -60,8 +60,8 @@ class SortTests : BaseTest() {
     @Owner("Polishevskyi")
     fun `Verify product name when sorted by price descending`() {
         with(productsPage) {
-            tapOnSortIcon()
-            tapOnPriceDesc()
+            tapOnSortBtn()
+            tapOnPriceDescBtn()
             val itemPriceDesc = getFirstItemNameText()
             assertEquals(
                 itemPriceDesc,

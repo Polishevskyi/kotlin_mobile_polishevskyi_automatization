@@ -21,15 +21,15 @@ class GoodsPage : BasePage() {
     @iOSXCUITFindBy(accessibility = "tab bar option cart")
     private lateinit var cartTab: WebElement
 
-    fun tapOnAddToCartButton() {
+    fun tapOnAddToCartBtn() {
         addToCartButton.click()
     }
 
-    fun getNameOnCartTabText(): String {
+    fun getCartNameText(): String {
         return labelOnCartTab.text
     }
 
-    fun getPriceOnCartTabText(): String {
+    fun getCartPriceText(): String {
         return priceOnCartTab.text
     }
 

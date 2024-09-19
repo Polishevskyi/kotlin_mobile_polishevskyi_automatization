@@ -23,7 +23,7 @@ class LoginTests : BaseTest() {
         with(loginPage) {
             enterUserEmail("")
             enterUserPassword(VALID_PASSWORD)
-            tapLoginButton()
+            tapOnLoginBtn()
         }
         assertEquals(
             loginPage.getUserNameErrorText(),
@@ -38,7 +38,7 @@ class LoginTests : BaseTest() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)
             enterUserPassword("")
-            tapLoginButton()
+            tapOnLoginBtn()
         }
         assertEquals(
             loginPage.getUserPasswordErrorText(),
@@ -49,11 +49,11 @@ class LoginTests : BaseTest() {
 
     @Test(dataProvider = "invalid-login-dataProvider", dataProviderClass = DataProviders::class, priority = 3)
     @Owner("Polishevskyi")
-    fun `Verify error when login credentials are invalid`(userName: String, password: String, errorText: String) {
+    fun `Verify error when login credentials are invalid`(userName: String, userPassword: String, errorText: String) {
         with(loginPage) {
             enterUserEmail(userName)
-            enterUserPassword(password)
-            tapLoginButton()
+            enterUserPassword(userPassword)
+            tapOnLoginBtn()
         }
         assertEquals(
             loginPage.getCredentialsErrorText(),
@@ -68,7 +68,7 @@ class LoginTests : BaseTest() {
         with(loginPage) {
             enterUserEmail(VALID_USERNAME)
             enterUserPassword(VALID_PASSWORD)
-            tapLoginButton()
+            tapOnLoginBtn()
         }
         assertTrue(productsPage.getTitleMainPage(), "Main page should be displayed after successful login")
     }
