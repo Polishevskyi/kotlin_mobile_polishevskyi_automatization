@@ -59,3 +59,6 @@ docker-compose.override.yml
 
 ### Debug and profiling files ###
 hs_err_pid*
+
+### Keystore and credentials ###
+keystore.properties

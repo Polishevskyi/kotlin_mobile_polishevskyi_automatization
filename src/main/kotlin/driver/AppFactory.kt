@@ -7,16 +7,24 @@ import io.appium.java_client.ios.IOSDriver
 import io.appium.java_client.ios.options.XCUITestOptions
 import org.testng.SkipException
 import java.net.URL
+import java.io.FileInputStream
+import java.util.Properties
 
 object AppFactory {
 
     private var driver: AppiumDriver? = null
     private val browserstackOptions: MutableMap<String, Any> = mutableMapOf()
 
+    private val properties: Properties by lazy {
+        val props = Properties()
+        FileInputStream("keystore.properties").use { props.load(it) }
+        props
+    }
+
     private fun getBrowserstackOptions(): Map<String, Any> {
         return browserstackOptions.apply {
-            put("userName", "serhiitestovkiy_fyRQuV")
-            put("accessKey", "UUpKxrixq9XqPp7mhzqe")
+            put("userName", properties.getProperty("browserstack.userName"))
+            put("accessKey", properties.getProperty("browserstack.accessKey"))
             put("appiumVersion", "2.4.1")
         }
     }
@@ -34,7 +42,7 @@ object AppFactory {
                 setPlatformVersion("13.0")
                 setAppPackage("com.saucelabs.mydemoapp.rn")
                 setAppActivity(".MainActivity")
-                setApp("bs://d47dee8664b8ec67348d554b8dde75c28d870d50")
+                setApp(properties.getProperty("browserstack.androidApp"))  // Отримання app з keystore.properties
                 setCapability("bstack:options", getBrowserstackOptions())
                 driver = AndroidDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
@@ -53,7 +61,7 @@ object AppFactory {
                 setDeviceName("iPhone 15 Pro")
                 setPlatformVersion("17.2")
                 setBundleId("com.saucelabs.mydemoapp.rn")
-                setApp("bs://24b0d4c64ff227ceb4bad47b8c2018c3d893947a")
+                setApp(properties.getProperty("browserstack.iosApp"))  // Отримання app з keystore.properties
                 setCapability("bstack:options", getBrowserstackOptions())
                 driver = IOSDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
