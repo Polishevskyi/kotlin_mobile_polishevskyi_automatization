@@ -10,10 +10,6 @@ class ProductsPage : BasePage() {
     @iOSXCUITFindBy(accessibility = "container header")
     private lateinit var productPage: WebElement
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc='store item text']")
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name='store item text']")
-    private lateinit var itemNames: WebElement
-
     @AndroidFindBy(xpath = "(//android.widget.TextView[@content-desc='store item text'])[1]")
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='store item text'])[1]")
     private lateinit var firstItemName: WebElement
@@ -21,6 +17,26 @@ class ProductsPage : BasePage() {
     @AndroidFindBy(xpath = "(//android.widget.TextView[@content-desc='store item price'])[1]")
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='store item price'])[1]")
     private lateinit var firstItemPrice: WebElement
+
+    @AndroidFindBy(accessibility = "sort button")
+    @iOSXCUITFindBy(accessibility = "sort button")
+    private lateinit var sortIcon: WebElement
+
+    @AndroidFindBy(accessibility = "nameAsc")
+    @iOSXCUITFindBy(accessibility = "nameAsc")
+    private lateinit var sortByNameAscending: WebElement
+
+    @AndroidFindBy(accessibility = "nameDesc")
+    @iOSXCUITFindBy(accessibility = "nameDesc")
+    private lateinit var sortByNameDescending: WebElement
+
+    @AndroidFindBy(accessibility = "priceAsc")
+    @iOSXCUITFindBy(accessibility = "priceAsc")
+    private lateinit var sortByPriceAscending: WebElement
+
+    @AndroidFindBy(accessibility = "priceDesc")
+    @iOSXCUITFindBy(accessibility = "priceDesc")
+    private lateinit var sortByPriceDescending: WebElement
 
     fun getTitleMainPage(): Boolean =
         productPage.let { runCatching { it.isDisplayed }.getOrDefault(false) }
@@ -35,5 +51,25 @@ class ProductsPage : BasePage() {
 
     fun tapOnFirstItem() {
         firstItemName.click()
+    }
+
+    fun tapOnSortIcon() {
+        sortIcon.click()
+    }
+
+    fun tapOnNameAsc() {
+        sortByNameAscending.click()
+    }
+
+    fun tapOnNameDesc() {
+        sortByNameDescending.click()
+    }
+
+    fun tapOnPriceAsc() {
+        sortByPriceAscending.click()
+    }
+
+    fun tapOnPriceDesc() {
+        sortByPriceDescending.click()
     }
 }

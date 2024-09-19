@@ -8,14 +8,17 @@ class MenuPage : BasePage() {
 
     @AndroidFindBy(accessibility = "open menu")
     @iOSXCUITFindBy(accessibility = "tab bar option menu")
-    private lateinit var menuOption: WebElement
+    private lateinit var menuTab: WebElement
 
     @AndroidFindBy(accessibility = "menu item log in")
     @iOSXCUITFindBy(accessibility = "menu item log in")
-    lateinit var menuLogin: WebElement
+    lateinit var logInBtn: WebElement
 
-    fun navigateToLogin() {
-        menuOption.click()
-        menuLogin.click()
+    fun tapOnMenuTab() {
+        menuTab.click()
+    }
+
+    fun tapOnLogInBtn() {
+        logInBtn.click()
     }
 }

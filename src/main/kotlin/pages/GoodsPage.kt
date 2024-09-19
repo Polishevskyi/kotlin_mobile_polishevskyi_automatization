@@ -25,11 +25,13 @@ class GoodsPage : BasePage() {
         addToCartButton.click()
     }
 
-    fun getNameOnCartTabText(): String =
-        labelOnCartTab.let { runCatching { it.text }.getOrDefault("") }
+    fun getNameOnCartTabText(): String {
+        return labelOnCartTab.text
+    }
 
-    fun getPriceOnCartTabText(): String =
-        priceOnCartTab.let { runCatching { it.text }.getOrDefault("") }
+    fun getPriceOnCartTabText(): String {
+        return priceOnCartTab.text
+    }
 
     fun tapOnCartTabButton() {
         cartTab.click()

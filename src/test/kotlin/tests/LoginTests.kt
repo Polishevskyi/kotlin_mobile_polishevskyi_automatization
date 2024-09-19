@@ -14,7 +14,10 @@ class LoginTests : BaseTest() {
 
     @Test(priority = 1)
     fun `Verify error when username is empty and password is correct`() {
-        menuPage.navigateToLogin()
+        with(menuPage) {
+            tapOnMenuTab()
+            tapOnLogInBtn()
+        }
         with(loginPage) {
             enterUserEmail("")
             enterUserPassword(VALID_PASSWORD)
