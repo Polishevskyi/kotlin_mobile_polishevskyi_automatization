@@ -13,32 +13,33 @@ import utils.StringHelper.VALID_USERNAME
 class LoginTest : BaseTest() {
 
     @Test(priority = 1)
-    fun invalidLoginEmptyUserNameTest() {
+    fun emptyLoginAndCorrectPasswordTest() {
         menuPage.navigateToLogin()
         with(loginPage) {
-            enterUserName("")
-            enterPassword(VALID_PASSWORD)
-            clickLoginButton()
+            menuPage.navigateToLogin()
+            enterUserEmail("")
+            enterUserPassword(VALID_PASSWORD)
+            tapLoginButton()
         }
         assertEquals(loginPage.getUserNameErrorText(), ERROR_USERNAME_REQUIRED)
     }
 
     @Test(priority = 2)
-    fun invalidLoginEmptyPasswordTest() {
+    fun correctLoginAndEmptyPasswordTest() {
         with(loginPage) {
-            enterUserName(VALID_USERNAME)
-            enterPassword("")
-            clickLoginButton()
+            enterUserEmail(VALID_USERNAME)
+            enterUserPassword("")
+            tapLoginButton()
         }
-        assertEquals(loginPage.getPasswordErrorText(), ERROR_PASSWORD_REQUIRED)
+        assertEquals(loginPage.getUserPasswordErrorText(), ERROR_PASSWORD_REQUIRED)
     }
 
     @Test(dataProvider = "invalid-login-dataProvider", dataProviderClass = DataProviders::class, priority = 3)
     fun invalidLoginTest(userName: String, password: String, errorText: String) {
         with(loginPage) {
-            enterUserName(userName)
-            enterPassword(password)
-            clickLoginButton()
+            enterUserEmail(userName)
+            enterUserPassword(password)
+            tapLoginButton()
         }
         assertEquals(loginPage.getCredentialsErrorText(), errorText)
     }
@@ -46,10 +47,10 @@ class LoginTest : BaseTest() {
     @Test(priority = 4)
     fun validLoginTest() {
         with(loginPage) {
-            enterUserName(VALID_USERNAME)
-            enterPassword(VALID_PASSWORD)
-            clickLoginButton()
+            enterUserEmail(VALID_USERNAME)
+            enterUserPassword(VALID_PASSWORD)
+            tapLoginButton()
         }
-        assertTrue(productsPage.waitForProductText())
+        assertTrue(productsPage.getTitleMainPage())
     }
 }

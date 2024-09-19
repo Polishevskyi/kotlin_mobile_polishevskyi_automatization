@@ -22,6 +22,6 @@ class ProductsPage : BasePage() {
     @iOSXCUITFindBy(xpath = "(//XCUIElementTypeStaticText[@name='store item price'])[1]")
     private lateinit var firstItemPrice: WebElement
 
-    fun waitForProductText(): Boolean =
+    fun getTitleMainPage(): Boolean =
         productPage.let { runCatching { it.isDisplayed }.getOrDefault(false) }
 }

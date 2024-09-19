@@ -30,17 +30,17 @@ class LoginPage : BasePage() {
     @iOSXCUITFindBy(accessibility = "Login button")
     private lateinit var btnLogin: WebElement
 
-    fun enterUserName(username: String) {
+    fun enterUserEmail(username: String) {
         userName.clear()
         userName.sendKeys(username)
     }
 
-    fun enterPassword(passwordText: String) {
+    fun enterUserPassword(passwordText: String) {
         password.clear()
         password.sendKeys(passwordText)
     }
 
-    fun clickLoginButton() {
+    fun tapLoginButton() {
         btnLogin.click()
     }
 
@@ -48,7 +48,7 @@ class LoginPage : BasePage() {
         return userNameErrorText.text
     }
 
-    fun getPasswordErrorText(): String {
+    fun getUserPasswordErrorText(): String {
         return passwordErrorText.text
     }
 

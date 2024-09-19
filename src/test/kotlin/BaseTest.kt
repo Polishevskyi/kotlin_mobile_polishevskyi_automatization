@@ -9,10 +9,12 @@ import org.testng.annotations.BeforeSuite
 import pages.LoginPage
 import pages.MenuPage
 import pages.ProductsPage
+import utils.DataGenerator
 import utils.Util
 
 open class BaseTest {
 
+    protected val dataGenerator : DataGenerator by lazy { DataGenerator() }
     protected val menuPage: MenuPage by lazy { MenuPage() }
     protected val loginPage: LoginPage by lazy { LoginPage() }
     protected val productsPage: ProductsPage by lazy { ProductsPage() }

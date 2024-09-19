@@ -1,14 +1,26 @@
 package utils
 
 import org.testng.annotations.DataProvider
+import utils.StringHelper.ERROR_INVALID_CREDENTIALS
+import utils.StringHelper.VALID_PASSWORD
+import utils.StringHelper.VALID_USERNAME
 
 class DataProviders {
+
+    private val dataGenerator = DataGenerator()
 
     @DataProvider(name = "invalid-login-dataProvider")
     fun invalidLoginDataProvider(): Array<Array<Any>> {
         return arrayOf(
-            arrayOf(StringHelper.VALID_USERNAME, "1234", StringHelper.ERROR_INVALID_CREDENTIALS),
-            arrayOf("bob@example", "1234", StringHelper.ERROR_INVALID_CREDENTIALS)
+            arrayOf(dataGenerator.generateRandomEmail(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
+            arrayOf(VALID_USERNAME, dataGenerator.generateRandomPassword(), ERROR_INVALID_CREDENTIALS),
+            arrayOf(dataGenerator.generateRandomEmail(), dataGenerator.generateRandomPassword(), ERROR_INVALID_CREDENTIALS),
+            arrayOf(dataGenerator.generateLoginWithoutDomain(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
+            arrayOf(dataGenerator.generateLoginWithoutAtSymbol(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
+            arrayOf(dataGenerator.generateSqlInjection(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
+            arrayOf(VALID_USERNAME, dataGenerator.generateSqlInjection(), ERROR_INVALID_CREDENTIALS),
+            arrayOf(dataGenerator.generateXssAttack(), VALID_PASSWORD, ERROR_INVALID_CREDENTIALS),
+            arrayOf(VALID_USERNAME, dataGenerator.generateXssAttack(), ERROR_INVALID_CREDENTIALS)
         )
     }
 }
