@@ -158,3 +158,7 @@ Feel free to contribute to the project by submitting issues or pull requests. Be
 ## License
 
 This project is licensed under the MIT License.
+
+## Test Results Allure
+![Test Results](https://github.com/Polishevskyi/kotlin_mobile_polishevskyi_automatization/blob/master/AllureReport.png)
+
