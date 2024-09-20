@@ -42,7 +42,7 @@ object AppFactory {
                 setPlatformVersion("13.0")
                 setAppPackage("com.saucelabs.mydemoapp.rn")
                 setAppActivity(".MainActivity")
-                setApp(properties.getProperty("browserstack.androidApp"))  // Отримання app з keystore.properties
+                setApp(properties.getProperty("browserstack.androidApp"))
                 setCapability("bstack:options", getBrowserstackOptions())
                 driver = AndroidDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
@@ -61,7 +61,7 @@ object AppFactory {
                 setDeviceName("iPhone 15 Pro")
                 setPlatformVersion("17.2")
                 setBundleId("com.saucelabs.mydemoapp.rn")
-                setApp(properties.getProperty("browserstack.iosApp"))  // Отримання app з keystore.properties
+                setApp(properties.getProperty("browserstack.iosApp"))
                 setCapability("bstack:options", getBrowserstackOptions())
                 driver = IOSDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
