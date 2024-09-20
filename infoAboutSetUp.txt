@@ -17,6 +17,10 @@ AppFactory
 userName and accessKey -> login + password from BrowserStack
 .setApp("bs://d47dee8664b8ec67348d554b8dde78d870d50") -> set after uploading to BrowserStack
 
+Upload app to BrowserStack
+Login + Password + path to app
+curl -u "testoskiy_bn9T74:uqgc5y7jppELoc9xcso" -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@/Users/serhii/Documents/iOS-Real-Device-MyRNDemoApp.1.3.0-162.ipa"
+
 Appium for Appium Inspector
 appium server -a 127.0.0.1 -pa /wd/hub --allow-cors
 
