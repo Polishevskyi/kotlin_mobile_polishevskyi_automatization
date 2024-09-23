@@ -1,4 +1,5 @@
 import driver.AppData
+import driver.AppDriver
 import driver.AppFactory
 import driver.AppiumServer
 import org.testng.annotations.AfterSuite
@@ -24,7 +25,7 @@ open class BaseTest {
     @AfterSuite
     fun serverStop() {
         AppFactory.closeApp()
-        AppiumServer.stop()
+        AppDriver.getCurrentDriver()?.quit()
     }
 
     @BeforeClass

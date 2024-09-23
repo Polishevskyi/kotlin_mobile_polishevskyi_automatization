@@ -42,8 +42,4 @@ object AppiumServer {
         println(getInstance().url)
         println(getInstance().isRunning)
     }
-
-    fun stop() {
-        server?.stop()
-    }
 }

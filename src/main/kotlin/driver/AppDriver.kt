@@ -6,7 +6,7 @@ object AppDriver {
 
     private val driver: ThreadLocal<WebDriver> = ThreadLocal()
 
-    private fun getDriver(): WebDriver? {
+    fun getDriver(): WebDriver? {
         return driver.get()
     }
 
