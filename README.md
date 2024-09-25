@@ -116,19 +116,11 @@ The first command will generate the Allure report from the test results, and the
 The tests can be run in parallel. The `testng.xml` configuration is set to run tests in parallel by classes:
 
 ```xml
-<suite name="suite_ui_tests" parallel="classes" thread-count="3">
-    <test name="Login">
+<suite name="suite_ui_tests">
+    <test name="UI tests" parallel="classes" thread-count="3">
         <classes>
             <class name="tests.LoginTests"/>
-        </classes>
-    </test>
-    <test name="Product Cart">
-        <classes>
             <class name="tests.ProductCartTest"/>
-        </classes>
-    </test>
-    <test name="Sort">
-        <classes>
             <class name="tests.SortTests"/>
         </classes>
     </test>
