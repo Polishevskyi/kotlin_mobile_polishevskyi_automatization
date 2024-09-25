@@ -1,9 +1,7 @@
-package ui.util
+package utils
 
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.android.AndroidDriver
-import io.appium.java_client.clipboard.ClipboardContentType
-import io.appium.java_client.ios.IOSDriver
 import org.openqa.selenium.By
 import org.openqa.selenium.Point
 import org.openqa.selenium.WebElement
@@ -16,12 +14,11 @@ class ElementNotFoundException(message: String) : Exception(message)
 object Util {
 
     private const val DEFAULT_RETRIES_COUNT = 3
-    const val DEFAULT_SWIPE_COUNT = 5
     private const val DEFAULT_DELAY_BEFORE_ACTION = 1
     private const val DEFAULT_DELAY_AFTER_ACTION = 0
     private const val DEFAULT_DISTANCE = 0.1
 
-    fun getCenterOfElement(element: WebElement?): Point {
+    private fun getCenterOfElement(element: WebElement?): Point {
         element?.let {
             val size = element.size
             val start = Point(element.location.x, element.location.y)

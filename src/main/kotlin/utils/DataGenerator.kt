@@ -3,6 +3,7 @@ package utils
 import com.github.javafaker.Faker
 
 class DataGenerator {
+
     private val faker = Faker()
 
     fun generateRandomEmail(): String {

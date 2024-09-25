@@ -15,12 +15,6 @@ object AppFactory {
     private lateinit var driver: AppiumDriver
     private val browserstackOptions: MutableMap<String, Any> = mutableMapOf()
 
-    private val properties: Properties by lazy {
-        val props = Properties()
-        FileInputStream("keystore.properties").use { props.load(it) }
-        props
-    }
-
     private fun getBrowserstackOptions(): Map<String, Any> {
         return browserstackOptions.apply {
             put("userName", properties.getProperty("browserstack.userName"))
@@ -79,5 +73,11 @@ object AppFactory {
 
     fun closeApp() {
         AppDriver.getCurrentDriver().quit()
+    }
+
+    private val properties: Properties by lazy {
+        val props = Properties()
+        FileInputStream("keystore.properties").use { props.load(it) }
+        props
     }
 }

@@ -7,7 +7,7 @@ import java.io.File
 
 object AppiumServer {
 
-    private var server: AppiumDriverLocalService? = null
+    private lateinit var server: AppiumDriverLocalService
 
     private fun setInstance() {
         val builder = AppiumServiceBuilder().apply {
@@ -23,21 +23,19 @@ object AppiumServer {
     }
 
     private fun getInstance(): AppiumDriverLocalService {
-        return server ?: run {
+        if (!::server.isInitialized) {
             setInstance()
-            server!!
         }
+        return server
     }
 
     fun start() {
         getInstance().start()
-        println(getInstance().url)
-        println(getInstance().isRunning)
     }
 
     fun stop() {
-        if (server != null && server!!.isRunning) {
-            server!!.stop()
+        if (::server.isInitialized && server.isRunning) {
+            server.stop()
         }
     }
 }

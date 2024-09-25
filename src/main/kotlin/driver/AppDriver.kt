@@ -6,7 +6,7 @@ object AppDriver {
 
     private val driver: ThreadLocal<AppiumDriver> = ThreadLocal()
 
-    fun getDriver(): AppiumDriver {
+    private fun getDriver(): AppiumDriver {
         return driver.get()
     }
 
