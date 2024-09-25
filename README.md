@@ -12,7 +12,7 @@ This project is aimed at automating mobile application testing using Kotlin, App
 ## Key Components
 
 ### 1. **AppData**
-- Manages platform-specific settings (Android/iOS) and other properties like the usage of gesture plugins or cloud services.
+- Manages platform-specific settings (Android/iOS) and other properties like the usage of cloud services.
 
 ### 2. **AppDriver**
 - Handles driver management using `ThreadLocal` to support parallel execution.
@@ -58,14 +58,7 @@ Ensure you have the necessary drivers installed for Android and iOS:
 appium driver install uiautomator2
 appium driver install xcuitest
 ```
-### 3. Install Appium Gesture Plugin (if required)
-
-If you are using the gesture plugin, make sure to install it:
-
-```bash
-appium plugin install --source npm gestures
-```
-### 4. Set up BrowserStack Integration
+### 3. Set up BrowserStack Integration
 
 To run tests on BrowserStack, ensure you have the required credentials (`browserstack.userName`, `browserstack.accessKey`) in the `keystore.properties` file:
 
