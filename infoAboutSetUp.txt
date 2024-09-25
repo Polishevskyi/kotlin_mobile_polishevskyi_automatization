@@ -45,6 +45,8 @@ No need to run the simulator before tests
 "platformName": "iOS",
 "appium:platformVerion": "17.2",
 "appium:bundleID": "com.saucelabs.mydemoapp.rn",
+"appium:udid": "8F2EE9FA-D543-4211-AF7F-0DCEC6CAF84",
+"appium:noReset": true,
 "appium:deviceName": "iPhone 15 Pro"
 }
 
