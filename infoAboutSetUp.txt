@@ -5,17 +5,16 @@ APK file – for Android phones and BrowserStack.
 IPA file – for use with BrowserStack.
 ZIP file (app) – for iOS phones.
 
-Appium Gestures Plugin
-Terminal -> appium plugin install --source=npm appium-gestures-plugin
-
 AppiumServer
 Terminal -> which node -> Set it according to the example
                 .withAppiumJS(new File("/Users/serhii/.nvm/versions/node/v21.7.1/lib/node_modules/appium/build/lib/main.js"))
                 .usingDriverExecutable(new File("/Users/serhii/.nvm/versions/node/v21.7.1/bin/node"))
 
-AppFactory
-userName and accessKey -> login + password from BrowserStack
-.setApp("bs://d47dee8664b8ec67348d554b8dde78d870d50") -> set after uploading to BrowserStack
+keystore.properties
+browserstack.userName=key -> login from BrowserStack
+browserstack.accessKey=key -> password from BrowserStack
+browserstack.androidApp=bs://key -> set after uploading to BrowserStack
+browserstack.iosApp=bs://key -> set after uploading to BrowserStack
 
 Upload app to BrowserStack
 Login + Password + path to app
@@ -39,7 +38,6 @@ Must run emulator before tests
 }
 
 Appium Inspector iOS local run
-No need to run the simulator before tests
 {
 "appium:automationName": "XCUITest",
 "platformName": "iOS",
