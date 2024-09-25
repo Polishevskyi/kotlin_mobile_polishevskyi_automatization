@@ -17,14 +17,6 @@ object AppiumServer {
             withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
             withLogFile(File("Appiumlog.txt"))
             withIPAddress("127.0.0.1")
-
-            if (AppData.useGesturePlugin.contains("true")) {
-                withArgument(GeneralServerFlag.USE_PLUGINS, "gestures")
-            }
-
-            if (AppData.chromeAutoDownloadDriver.contains("true")) {
-                withArgument(GeneralServerFlag.ALLOW_INSECURE, "chromedriver_autodownload")
-            }
         }
 
         server = AppiumDriverLocalService.buildService(builder)
