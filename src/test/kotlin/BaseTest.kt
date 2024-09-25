@@ -1,8 +1,7 @@
 import driver.AppData
-import driver.AppDriver
 import driver.AppFactory
 import driver.AppiumServer
-import org.testng.annotations.AfterSuite
+import org.testng.annotations.AfterClass
 import org.testng.annotations.BeforeClass
 import org.testng.annotations.BeforeSuite
 import pages.*
@@ -22,10 +21,9 @@ open class BaseTest {
         }
     }
 
-    @AfterSuite
+    @AfterClass
     fun serverStop() {
         AppFactory.closeApp()
-        AppDriver.getCurrentDriver()?.quit()
     }
 
     @BeforeClass

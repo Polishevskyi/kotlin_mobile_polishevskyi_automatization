@@ -1,20 +1,20 @@
 package driver
 
-import org.openqa.selenium.WebDriver
+import io.appium.java_client.AppiumDriver
 
 object AppDriver {
 
-    private val driver: ThreadLocal<WebDriver> = ThreadLocal()
+    private val driver: ThreadLocal<AppiumDriver> = ThreadLocal()
 
-    fun getDriver(): WebDriver? {
+    fun getDriver(): AppiumDriver {
         return driver.get()
     }
 
-    fun getCurrentDriver(): WebDriver? {
+    fun getCurrentDriver(): AppiumDriver {
         return getDriver()
     }
 
-    fun setDriver(driverInstance: WebDriver) {
+    fun setDriver(driverInstance: AppiumDriver) {
         driver.set(driverInstance)
     }
 }

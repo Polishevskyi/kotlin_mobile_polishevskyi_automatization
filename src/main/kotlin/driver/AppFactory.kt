@@ -6,13 +6,13 @@ import io.appium.java_client.android.options.UiAutomator2Options
 import io.appium.java_client.ios.IOSDriver
 import io.appium.java_client.ios.options.XCUITestOptions
 import org.testng.SkipException
-import java.net.URL
 import java.io.FileInputStream
-import java.util.Properties
+import java.net.URL
+import java.util.*
 
 object AppFactory {
 
-    private var driver: AppiumDriver? = null
+    private lateinit var driver: AppiumDriver
     private val browserstackOptions: MutableMap<String, Any> = mutableMapOf()
 
     private val properties: Properties by lazy {
@@ -47,7 +47,7 @@ object AppFactory {
                 driver = AndroidDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
         }
-        driver?.let { AppDriver.setDriver(it) }
+        driver.let { AppDriver.setDriver(it) }
     }
 
     private fun iosLaunchApp() {
@@ -66,7 +66,7 @@ object AppFactory {
                 driver = IOSDriver(URL("http://hub-cloud.browserstack.com/wd/hub/"), this)
             }
         }
-        driver?.let { AppDriver.setDriver(it) }
+        driver.let { AppDriver.setDriver(it) }
     }
 
     fun launchApp() {
@@ -78,7 +78,6 @@ object AppFactory {
     }
 
     fun closeApp() {
-        driver?.quit()
-        driver = null
+        AppDriver.getCurrentDriver().quit()
     }
 }
