@@ -24,6 +24,9 @@ open class BaseTest {
     @AfterClass
     fun serverStop() {
         AppFactory.closeApp()
+        if (AppData.isCloud.contains("false")) {
+            AppiumServer.stop()
+        }
     }
 
     @BeforeClass

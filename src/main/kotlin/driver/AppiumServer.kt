@@ -42,4 +42,10 @@ object AppiumServer {
         println(getInstance().url)
         println(getInstance().isRunning)
     }
+
+    fun stop() {
+        if (server != null && server!!.isRunning) {
+            server!!.stop()
+        }
+    }
 }
