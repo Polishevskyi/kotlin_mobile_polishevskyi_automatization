@@ -1,13 +1,13 @@
 # Kotlin Mobile Automation Project
 
-This project is aimed at automating mobile application testing using Kotlin, Appium, Selenium, and TestNG. It supports testing on both Android and iOS platforms, with integration for BrowserStack for cloud-based testing.
+This project automates mobile application testing using Kotlin, Appium, Selenium, and TestNG. It supports testing on both Android and iOS platforms, with integration for BrowserStack for cloud-based testing.
 
 ## Project Structure
 
 - **driver**: Contains classes for setting up and managing drivers for Android and iOS platforms using Appium.
 - **pages**: Implements the Page Object Model (POM) pattern for different pages in the app.
 - **utils**: Includes utility classes such as data generators and data providers for TestNG.
-- **tests**: Contains the test cases, which verify various functionalities of the mobile application.
+- **tests**: Contains the test cases, which verify various mobile application functionalities.
 
 ## Key Components
 
@@ -68,7 +68,7 @@ browserstack.accessKey=your_browserstack_access_key
 browserstack.androidApp=bs://<app-id>
 browserstack.iosApp=bs://<app-id>
 ```
-You can find the `app-id` for your app in the BrowserStack dashboard after uploading the app.
+After uploading the app, you can find the `app-id` for your app in the BrowserStack dashboard.
 
 ## Running Tests
 
@@ -138,7 +138,7 @@ You can integrate this project into a CI/CD pipeline using tools like Jenkins, G
 
 ## Contribution
 
-Feel free to contribute to the project by submitting issues or pull requests. Before contributing, please ensure your code follows the existing structure and passes all tests.
+Please contribute to the project by submitting any issues or pull requests. Before contributing, please ensure your code follows the existing structure and passes all tests.
 
 ## License
 
@@ -146,4 +146,9 @@ This project is licensed under the MIT License.
 
 ## Test Results Allure
 ![Test Results](https://github.com/Polishevskyi/kotlin_mobile_polishevskyi_automatization/blob/master/AllureReport.png)
+
+## Test Results BrowserStack
+![Test Results](https://github.com/Polishevskyi/kotlin_mobile_polishevskyi_automatization/blob/master/browserstack1.png)
+![Test Results](https://github.com/Polishevskyi/kotlin_mobile_polishevskyi_automatization/blob/master/browserstack2.png)
+
 
