@@ -11,8 +11,8 @@ object AppiumServer {
 
     private fun setInstance() {
         val builder = AppiumServiceBuilder().apply {
-            withAppiumJS(File("/Users/serhii/.nvm/versions/node/v21.7.1/lib/node_modules/appium/build/lib/main.js"))
-            usingDriverExecutable(File("/Users/serhii/.nvm/versions/node/v21.7.1/bin/node"))
+            withAppiumJS(File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
+            usingDriverExecutable(File("/usr/local/bin/node"))
             usingPort(4723)
             withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
             withLogFile(File("Appiumlog.txt"))

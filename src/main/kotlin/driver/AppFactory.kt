@@ -47,13 +47,13 @@ object AppFactory {
     private fun iosLaunchApp() {
         val options = XCUITestOptions().apply {
             if (AppData.isCloud.contains("false")) {
-                setDeviceName("iPhone 15 Pro")
-                setPlatformVersion("17.2")
+                setDeviceName("iPhone 16 Pro")
+                setPlatformVersion("18.0")
                 setBundleId("com.saucelabs.mydemoapp.rn")
                 driver = IOSDriver(URL("http://127.0.0.1:4723/"), this)
             } else {
-                setDeviceName("iPhone 15 Pro")
-                setPlatformVersion("17.2")
+                setDeviceName("iPhone 16 Pro")
+                setPlatformVersion("18.0")
                 setBundleId("com.saucelabs.mydemoapp.rn")
                 setApp(properties.getProperty("browserstack.iosApp"))
                 setCapability("bstack:options", getBrowserstackOptions())
